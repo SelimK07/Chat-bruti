@@ -72,4 +72,8 @@ def reset():
     return jsonify({"success": True})
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5000, debug=True)
+    # Use PORT environment variable if provided (Render sets $PORT).
+    port = int(os.environ.get("PORT", 5000))
+    # Allow enabling debug via FLASK_DEBUG=1 or FLASK_DEBUG=true in env for local development
+    flask_debug = os.environ.get("FLASK_DEBUG", "0").lower() in ("1", "true", "yes")
+    app.run(host='0.0.0.0', port=port, debug=flask_debug)
