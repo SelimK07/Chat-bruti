@@ -1,0 +1,26 @@
+{
+  "name": "Absurd Chatbot",
+  "description": "A hilarious and absurd chatbot powered by Groq API",
+  "repository": "https://github.com/SelimK07/Chat-bruti",
+  "keywords": ["flask", "chatbot", "groq", "ai"],
+  "buildpacks": [
+    {
+      "url": "heroku/python"
+    }
+  ],
+  "env": {
+    "FLASK_ENV": {
+      "description": "Flask environment",
+      "value": "production"
+    },
+    "GROQ_API_KEY": {
+      "description": "Your Groq API key",
+      "required": true
+    },
+    "CORS_ORIGINS": {
+      "description": "Comma-separated list of allowed origins",
+      "value": "*",
+      "required": false
+    }
+  }
+}
